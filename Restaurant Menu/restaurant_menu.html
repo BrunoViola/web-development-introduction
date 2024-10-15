@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Italian Ultimate Restaurant</title>
+
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f8f8f8;
+         color: #333;
+      }
+
+      header {
+         background-color: #8b0000;
+         color: #fff;
+         padding: 10px 20px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      header img {
+         margin-right: 10px;
+      }
+
+      nav ul {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+         display: flex;
+      }
+
+      nav ul li {
+         margin: 0 10px;
+      }
+
+      nav ul li a {
+         color: #fff;
+         text-decoration: none;
+      }
+
+      main {
+         padding: 20px;
+      }
+
+      h2 {
+         color: #8b0000;
+         text-align: center;
+      }
+
+      article {
+         background-color: #fff;
+         padding: 50px;
+         margin-bottom: 20px;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+      }
+
+      article img {
+         float: left;
+         margin-right: 15px;
+         border-radius: 5px;
+      }
+
+      form {
+         background-color: #fff;
+         padding: 20px;
+         border-radius: 5px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      form label {
+         display: block;
+         margin: 10px 0 5px;
+      }
+
+      form input, form textarea {
+         width: 100%;
+         padding: 10px;
+         margin-bottom: 10px;
+         border-radius: 5px;
+         border: 1px solid #ccc;
+      }
+
+      form input[type="submit"] {
+         background-color: #8b0000;
+         color: #fff;
+         border: none;
+         cursor: pointer;
+      }
+
+      form input[type="submit"]:hover {
+         background-color: #a52a2a;
+      }
+
+      footer {
+         background-color: #8b0000;
+         color: #fff;
+         text-align: center;
+         padding: 2px;
+         position: relative;
+         bottom: 0;
+         width: 100%;
+      }
+   </style>
+</head>
+<body>
+   <header>
+      <img src="https://www.codedex.io/images/coin-cropped.png" alt="logo" id="header-img" width="50" height="50">
+      <h1>Italian Ultimate Restaurant</h1>
+      <nav>
+         <ul>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#order-form">Order Form</a></li>
+         </ul>
+      </nav>
+   </header>
+   <main>
+      <h2>Ultimate Italian</h2>
+      <section id="menu">
+         <h2>Menu</h2>
+         <article>
+            <h3>Spaghetti Carbonara</h3>
+            <p>A Roman classic, Spaghetti Carbonara is made with pasta, eggs, Pecorino Romano cheese, pancetta, and black pepper. The creamy sauce is created by combining the eggs and cheese with the heat from the pasta, resulting in a rich, flavorful dish. Traditionally, no cream is used, relying solely on the quality of the ingredients.</p>
+            <figure style="margin:0;display:inline;">
+               <img
+                 width="150"
+                 src="https://images.unsplash.com/photo-1633337474564-1d9478ca4e2e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                 alt="Spaghetti Carbonara"
+               />
+             </figure>
+         </article>
+         <br><hr>
+         <article>
+            <h3>Risotto alla Milanese</h3>
+            <p>A creamy rice dish from Milan, Risotto alla Milanese is flavored with saffron, giving it a distinct yellow hue. The rich taste is achieved by cooking the rice slowly in broth, with butter and Parmigiano-Reggiano cheese added for extra depth. This luxurious dish pairs beautifully with meat dishes like ossobuco.</p>
+            <figure style="margin:0;display:inline;">
+               <img
+                 width="150"
+                 src="https://images.unsplash.com/photo-1461009683693-342af2f2d6ce?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                 alt="Risotto alla Milanese"
+               />
+            </figure>
+         </article>
+         <br><hr>
+         <article>
+            <h3>Osso Buco</h3>
+            <p>A traditional Milanese dish, Osso Buco features braised veal shanks cooked slowly with white wine, onions, carrots, celery, and a flavorful broth. The meat becomes tender and falls off the bone, with the bone marrow adding a rich, buttery taste. It is often served with a side of risotto or polenta, making it a comforting and elegant meal.</p>
+            <figure style="margin:0;display:inline;">
+               <img
+                 width="150" height="130"
+                 src="https://images.pexels.com/photos/15186040/pexels-photo-15186040/free-photo-of-osso-buco.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                 alt="Osso Buco"
+               />
+            </figure>
+         </article>
+      </section>
+      <br><hr><br>
+      <section id="order-form">
+         <h2>Order Form</h2>
+         <form>
+            <label for="number-item">Number of each item:</label> <input type="number" min="0" id="number-item">
+            <label>
+            <h4>Sides</h4>
+            <input type="radio" name="sides"> Caesar salad
+            <input type="radio" name="sides"> French fries
+            <input type="radio" name="sides"> Garlic bread
+            </label>
+            <label>
+            <h4>Add-ons</h4>
+            <input type="checkbox"> Mushrooms
+            <input type="checkbox"> Hot sauce
+            <input type="checkbox"> Fresh herbs
+            </label>
+            <br><br>
+            <label for="special-requests">
+               <textarea id="special-requests" rows="10" cols="25" placeholder="Enter special requests here..."></textarea>
+            </label>
+            <br>
+            <input type="submit" value="Go To Checkout">
+         </form>
+      </section>
+   </main>
+   <footer>
+      <p>Made with love by BrunoViola</p>
+   </footer>
+</body>
+</html>
