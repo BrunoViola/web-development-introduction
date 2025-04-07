@@ -1,2 +1,2 @@
 ## 👀 Gif demonstrando a execução
-![Demonstração do Projeto](projeto/gif/demonstracao-secao05.gif)
+![Demonstração do Projeto](gif/demonstracao-secao05.gif)
