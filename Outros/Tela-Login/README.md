@@ -2,4 +2,4 @@
 
 <h3>Captura de Tela</h3>
 
-![Captura-de-Tela](Tela-Login/img/captura-de-tela.png)
+![Captura-de-Tela](img/captura-de-tela.png)
