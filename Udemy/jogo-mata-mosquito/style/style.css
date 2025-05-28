@@ -1,4 +1,14 @@
-.mosquito-principal {
+.mosquito-grande {
+   height: 90px;
+   width: 90px;
+}
+
+.mosquito-medio {
+   height: 70px;
+   width: 70px;
+}
+
+.mosquito-pequeno {
    height: 50px;
    width: 50px;
 }
