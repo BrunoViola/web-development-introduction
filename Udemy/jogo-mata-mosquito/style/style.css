@@ -1,3 +1,7 @@
+body {
+   background: url(../img/fundo.jpg);
+}
+
 .mosquito-grande {
    height: 90px;
    width: 90px;
@@ -11,4 +15,12 @@
 .mosquito-pequeno {
    height: 50px;
    width: 50px;
+}
+
+.ladoA {
+   transform: scaleX(1);
+}
+
+.ladoB {
+   transform: scaleX(-1);
 }

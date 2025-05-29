@@ -10,6 +10,11 @@ function ajustaTamanhoPalcoJogo() {
 
 // posicionando o mosquito pelo palco do jogo
 function posicionaMosquito(){
+   //remover mosquito anterior, caso exista
+   if(document.getElementById('mosquito')){
+      document.getElementById('mosquito').remove();
+   }
+
    // randomiza as posições dos mosquitos
    var posicaoX = Math.floor(Math.random() * largura) - 90;
    var posicaoY = Math.floor(Math.random() * altura) - 90;
@@ -21,10 +26,11 @@ function posicionaMosquito(){
    // cria o elemento html
    var mosquito = document.createElement('img');
    mosquito.src = 'img/mosquito.png';
-   mosquito.className = tamanhoAleatorio();
+   mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio();
    mosquito.style.left = posicaoX + 'px';
    mosquito.style.top = posicaoY + 'px';
    mosquito.style.position = 'absolute';
+   mosquito.id = 'mosquito';
 
    document.body.appendChild(mosquito);
 }
@@ -35,17 +41,37 @@ function tamanhoAleatorio() {
 
    switch (classe) {
       case 0:
-         return 'mosquito-grande'
+         return 'mosquito-grande';
       case 1:
-         return 'mosquito-medio'
+         return 'mosquito-medio';
       case 2:
-         return 'mosquito-pequeno'
+         return 'mosquito-pequeno';
    }
+}
+
+//modificar o lado para qual o mosquito está virado
+function ladoAleatorio() {
+   var classe = Math.floor(Math.random() * 2);
+
+   switch(classe) {
+      case 0:
+         return 'ladoA';
+      case 1:
+         return 'ladoB';
+   }
+}
+
+//criando e removendo mosquitos por ciclo de tempo
+function criaRemoveTempo() {
+   setInterval(function(){
+      posicionaMosquito()
+   }, 1000)
 }
 
 function main() {
    ajustaTamanhoPalcoJogo();
    posicionaMosquito();
+   criaRemoveTempo();
 }
 
 main();
