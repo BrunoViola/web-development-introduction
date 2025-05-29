@@ -1,6 +1,9 @@
 var altura = 0;
 var largura = 0;
 var mosquitoNaoClicado = 1;
+var tempo = 10;
+
+var criaMosquito;
 
 //definindo a dimensão do palco do jogo
 function ajustaTamanhoPalcoJogo() {
@@ -84,15 +87,25 @@ function ladoAleatorio() {
 
 //criando e removendo mosquitos por ciclo de tempo
 function criaRemoveTempo() {
-   setInterval(function(){
+   criaMosquito = setInterval(function(){
       posicionaMosquito()
-   }, 1000)
+   }, 2001)
 }
 
 function main() {
    ajustaTamanhoPalcoJogo();
-   posicionaMosquito();
    criaRemoveTempo();
+
+   var cronometro = setInterval(function (){
+      if (tempo>=0) {
+         document.getElementById('cronometro').innerHTML = tempo;
+         tempo -= 1;
+      } else { //vitória
+         clearInterval(cronometro);
+         clearInterval(criaMosquito);
+         window.location.href = 'vitoria.html';
+      }
+   }, 2000)
 }
 
 main();
