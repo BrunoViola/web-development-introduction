@@ -1,5 +1,6 @@
 var altura = 0;
 var largura = 0;
+var mosquitoNaoClicado = 1;
 
 //definindo a dimensão do palco do jogo
 function ajustaTamanhoPalcoJogo() {
@@ -13,6 +14,23 @@ function posicionaMosquito(){
    //remover mosquito anterior, caso exista
    if(document.getElementById('mosquito')){
       document.getElementById('mosquito').remove();
+
+      switch(mosquitoNaoClicado){
+         case 1:
+            document.getElementById('v1').src = 'img/coracao_vazio.png';
+            break;
+         case 2:
+            document.getElementById('v2').src = 'img/coracao_vazio.png';
+            break;
+         case 3:
+            document.getElementById('v3').src = 'img/coracao_vazio.png';
+            break;
+      }
+      mosquitoNaoClicado+=1;
+
+      if(mosquitoNaoClicado==4) {
+         window.location.href = 'fim_do_jogo.html';
+      }
    }
 
    // randomiza as posições dos mosquitos
@@ -31,6 +49,9 @@ function posicionaMosquito(){
    mosquito.style.top = posicaoY + 'px';
    mosquito.style.position = 'absolute';
    mosquito.id = 'mosquito';
+   mosquito.onclick = function () {
+      this.remove();
+   }
 
    document.body.appendChild(mosquito);
 }
