@@ -5,6 +5,10 @@ var tempo = 10;
 
 var criaMosquito;
 
+var tempoCriaMosquito = 1500;
+
+var nivel = (window.location.search).replace('?','');
+
 //definindo a dimensão do palco do jogo
 function ajustaTamanhoPalcoJogo() {
    altura = window.innerHeight;
@@ -89,10 +93,21 @@ function ladoAleatorio() {
 function criaRemoveTempo() {
    criaMosquito = setInterval(function(){
       posicionaMosquito()
-   }, 2001)
+   }, tempoCriaMosquito)
+}
+
+function estabeleceNivel(){
+   if(nivel === 'normal') {
+      tempoCriaMosquito = 1500;
+   } else if (nivel === 'medio') {
+      tempoCriaMosquito = 1000;
+   } else if (nivel === 'dificil') {
+      tempoCriaMosquito = 750;
+   }
 }
 
 function main() {
+   estabeleceNivel();
    ajustaTamanhoPalcoJogo();
    criaRemoveTempo();
 
@@ -105,7 +120,7 @@ function main() {
          clearInterval(criaMosquito);
          window.location.href = 'vitoria.html';
       }
-   }, 2000)
+   }, 1000)
 }
 
 main();
