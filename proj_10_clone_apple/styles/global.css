@@ -22,13 +22,11 @@ header {
 
 header nav ul {
    margin: 0 auto;
-   padding: 12px 0;
    width: fit-content;
    display: flex;
    align-items: center;
    gap: 1rem;
    padding: 0 2rem;
-   background-color: var(--bg--primary);
 }
 
 header nav ul li {
@@ -138,8 +136,8 @@ main .ad-section span {
    color: var(--text-light);
    font-size: 1.2rem;
    line-height: 1.5rem;
-   letter-spacing: 0.11px;
    display: block;
+   letter-spacing: 0.23px;
 }
 
 main .iphone-section h2 {
