@@ -4,6 +4,7 @@
    --title-primary-color: #f5f5f7;
    --subtitle-color: #6e6e73;
    --action-color: #2997ff;
+   --ad-main-color: #ded289;
 }
 
 header {
@@ -38,12 +39,24 @@ header nav ul li {
    list-style: none;
 }
 
+main {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+}
+
 main section {
    background-color: var(--bg--primary);
    text-align: center;
+   position: relative;
 }
 
-main section h1 {
+main section img {
+   width: 100%;
+   height: auto;
+}
+
+main .main-section h1 {
    color: var(--title-primary-color);
    font-size: 3rem;
    font-weight: bold;
@@ -51,7 +64,7 @@ main section h1 {
    letter-spacing: -0.28px;
 }
 
-main section h2 {
+main .main-section h2 {
    color: var(--subtitle-color);
    font-size: 1.5rem;
    font-weight: normal;
@@ -60,11 +73,11 @@ main section h2 {
    margin-bottom: 1rem;
 }
 
-main section sub {
+main .main-section sub {
    font-size: 0.8rem;
 }
 
-main section a {
+main .main-section a {
    color: var(--action-color);
    line-height: 1.8rem;
    font-size: 1.2rem;
@@ -72,16 +85,11 @@ main section a {
    cursor: pointer;
 }
 
-main section a:hover {
+main .main-section a:hover {
    text-decoration: underline;
 }
 
-main section img {
-   width: 100%;
-   height: auto;
-}
-
-main section .text-wrapper {
+main .main-section .text-wrapper {
    position: absolute;
    left: 50%;
    transform: translateX(-50%);
@@ -89,4 +97,46 @@ main section .text-wrapper {
    flex-direction: column;
    align-items: center;
    margin-top: 51px;
+}
+
+main .ad-section > div {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+
+}
+
+main .ad-section > div:first-child {
+   top: 105px;
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   max-width: 60%;
+}
+
+main .ad-section > div:last-child {
+   bottom: 50px;
+}
+
+main .ad-section > div:first-child p {
+   font-size: 2rem;
+   font-weight: bold;
+   line-height: 2.5rem;
+   color: var(--ad-main-color);
+   letter-spacing: -0.6px;
+}
+
+main .ad-section p {
+   color: var(--title-primary-color);
+   font-size: 1.5rem;
+   line-height: 1.8rem;
+   letter-spacing: 0.11px;
+}
+
+main .ad-section span {
+   color: var(--text-light);
+   font-size: 1.2rem;
+   line-height: 1.5rem;
+   letter-spacing: 0.11px;
+   display: block;
 }
