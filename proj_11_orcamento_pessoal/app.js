@@ -78,6 +78,15 @@ function cadastrarDespesa(){
    if(despesa.validarDados()){
       bd.gravar(despesa);
 
+      //limpando os dados na tela após a gravação
+      document.getElementById("ano").value = '';
+      document.getElementById("mes").value = '';
+      document.getElementById("dia").value = '';
+      document.getElementById("tipo").value = '';
+      document.getElementById("descricao").value = '';
+      document.getElementById("valor").value = '';
+
+      // exibição do modal
       document.getElementById('modal_titulo').innerHTML = 'Registro inserido com sucesso';
       document.getElementById('modal_titulo_div').className = 'modal-header text-success';
       document.getElementById('modal_conteudo').innerHTML = 'A despesa foi cadastrada com sucesso!';
