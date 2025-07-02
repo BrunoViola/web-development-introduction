@@ -83,6 +83,10 @@ class Bd {
       console.log(despesasFiltradas);
       return despesasFiltradas;
    }
+
+   remover(id){
+      localStorage.removeItem(id);
+   }
 }
 
 let bd = new Bd();
@@ -174,7 +178,10 @@ function carregaListaDespesas(despesas = Array(), filtro=false){
       btn.innerHTML = '<i class="fas fa-times"></i>';
       btn.id = `id_despesa_${d.id}`;
       btn.onclick = function(){
-         alert(btn.id);
+         id = this.id.replace('id_despesa_', '');
+         bd.remover(id);
+
+         window.location.reload(); // Atualiza a página para refletir a remoção
       }
       linha.insertCell(4).appendChild(btn); //quarta coluna para inserir o botão
       })
