@@ -49,10 +49,39 @@ class Bd {
          if (despesa === null) {
             continue;
          }
+         despesa.id = i; // Adiciona o ID à despesa recuperada
          despesas.push(despesa);
       }
 
       return despesas;
+   }
+
+   pesquisar(despesa){
+      let despesasFiltradas = Array();
+
+      despesasFiltradas = this.recuperarTodosRegistros();
+
+      if (despesa.ano != ''){
+         despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano);
+      }
+      if (despesa.mes != ''){
+         despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes);
+      }
+      if(despesa.dia != ''){
+         despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia);
+      }
+      if(despesa.tipo != ''){
+         despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo);
+      }
+      if(despesa.descricao != ''){
+         despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao);
+      }
+      if(despesa.valor != ''){
+         despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor);
+      }
+
+      console.log(despesasFiltradas);
+      return despesasFiltradas;
    }
 }
 
@@ -105,12 +134,15 @@ function cadastrarDespesa(){
    }
 }
 
-function carregaListaDespesas(){
-   let despesas = Array();
-   despesas = bd.recuperarTodosRegistros();
-   console.log(despesas);
+function carregaListaDespesas(despesas = Array(), filtro=false){
+   if(despesas.length == 0 && filtro == false){
+      despesas = bd.recuperarTodosRegistros();
+   }
+   //chamo a função para popular a tabela com as despesas
    let listaDespesas = document.getElementById('listaDespesas');
+   listaDespesas.innerHTML = ''; // Limpa a tabela antes de inserir os novos dados
 
+   //insiro a tabela com os dados filtrados
    despesas.forEach(function(d){
       let linha = listaDespesas.insertRow();
       linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`;
@@ -135,5 +167,31 @@ function carregaListaDespesas(){
       linha.insertCell(1).innerHTML = `${d.tipo}`
       linha.insertCell(2).innerHTML = `${d.descricao}`
       linha.insertCell(3).innerHTML = `R$ ${d.valor}`;
-   })
+   
+      //cria botão de exclusão
+      let btn = document.createElement("button");
+      btn.className = 'btn btn-danger';
+      btn.innerHTML = '<i class="fas fa-times"></i>';
+      btn.id = `id_despesa_${d.id}`;
+      btn.onclick = function(){
+         alert(btn.id);
+      }
+      linha.insertCell(4).appendChild(btn); //quarta coluna para inserir o botão
+      })
+}
+
+function pesquisarDespesa(){
+   let ano = document.getElementById('ano').value;
+   let mes = document.getElementById('mes').value;
+   let dia = document.getElementById('dia').value;
+   let tipo = document.getElementById('tipo').value;
+   let descricao = document.getElementById('descricao').value;
+   let valor = document.getElementById('valor').value;
+
+   let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor);
+
+   //recebo as depesas que foram filtradas
+   let despesas = bd.pesquisar(despesa);
+   //chamo a função para popular a tabela com as despesas filtradas
+   carregaListaDespesas(despesas, true);
 }
